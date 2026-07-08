@@ -35,6 +35,8 @@
             <th width="100">Student Image</th>
             <th width="80">Dob</th>
             <th width="80">Contact</th>
+            <th width="50">Edit</th>
+            <th width="50">Delete</th>
           </tr>
       </thead>
       <tbody>
@@ -44,6 +46,11 @@
             <td><img src="<%= students[i].image %>" width="60"></td>
             <td><%= new Date(students[i].dob).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' }) %></td>
             <td><%= students[i].contact %></td>
+            <!-- Edit Link -->
+            <td><a href="/editStudent/<%= students[i].studentId %>">Edit</a></td>
+            <!-- Delete Link -->
+            <td><a href="/deleteStudent/<%= students[i].studentId %>"
+                onclick="return confirm('Are you sure you want to delete this student?')">Delete</a></td>
           </tr>
         <% } %>
       </tbody>
